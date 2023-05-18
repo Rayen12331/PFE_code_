@@ -2,31 +2,30 @@ pipeline {
     agent any
 
     stages {
-        stage('Clone project') {
+        stage('Clone') {
             steps {
-                // Checkout the source code from your Git repository
                 git 'https://github.com/Rayen12331/PFE_code_.git'
             }
         }
 
         stage('Build') {
             steps {
-                // Install dependencies and build the React app
-                sh 'cd C:/Users/LENOVO/.jenkins/workspace/PFEdeployment/Frontend/client && npm install'
+                // Insert your build steps here
+                sh 'cd Frontend' // Example build step using Maven
+                sh 'cd client'
+                sh 'npm install'
 
-                // Install dependencies and build the Node.js server
-                sh 'cd C:/Users/LENOVO/.jenkins/workspace/PFEdeployment/Frontend/server && npm install'
             }
         }
 
         stage('Deploy') {
             steps {
-                // Example: Deploy to a remote server using SSH
-                sshagent(['your-ssh-credentials-id']) {
-                    sh 'ssh user@your-server-ip "cd /path/to/server && git pull && npm install && pm2 restart your-app"'
+                // Insert your deployment steps here
+                sshagent(['your-ssh-credentials']) {
+                    sh 'ssh user@your-vm-address "cd /path/to/deployment; git pull"'
+                    sh 'ssh user@your-vm-address "cd /path/to/deployment; ./deploy.sh"'
+                    // Replace 'user', 'your-vm-address', '/path/to/deployment', and 'deploy.sh' with the appropriate values
                 }
-                
-                // Additional deployment steps or actions as per your requirements
             }
         }
     }
