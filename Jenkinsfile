@@ -1,17 +1,26 @@
 pipeline {
     agent any
     stages {
-        stage('Build MERN Project') {
+        stage('import Project') {
             steps {
                 // Checkout MERN project code from version control
-                git branch: 'master', url: 'https://github.com/Rayen12331/PFE_code_.git'
-
-                // Install dependencies and build MERN project
-                sh 'cd C:\\Users\\LENOVO\\.jenkins\\workspace\\Deployment tool Pipeline\\Frontend\\client && npm install && npm run build'
-                sh 'cd C:\\Users\\LENOVO\\.jenkins\\workspace\\Deployment tool Pipeline\\Frontend\\server && npm install && npm install -g nodemon && nodemon'
-                sh 'cd C:\\Users\\LENOVO\\.jenkins\\workspace\\Deployment tool Pipeline && uvicorn api:app --reload'
+                git branch: 'master', url: 'https://github.com/Rayen12331/PFE_code_.git
+                
             }
         }
+        
+        stage('Build') {
+            steps {
+                // Install dependencies and build the React app
+                sh 'cd client && npm install'
+                sh 'cd client && npm run build'
+
+                // Install dependencies and build the Node.js server
+                sh 'cd server && npm install'
+                sh 'cd server && npm install -g nodemon'
+            }
+        }
+        
         
         stage('Deploy') {
             steps {
