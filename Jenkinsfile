@@ -15,7 +15,7 @@ pipeline {
                 sh 'cd C:/Users/LENOVO/.jenkins/workspace/PFEdeployment/Frontend/client && npm install'
 
                 // Install dependencies and build the Node.js server
-                sh 'cd Frontend/server && npm install'
+                sh 'cd C:/Users/LENOVO/.jenkins/workspace/PFEdeployment/Frontend/server && npm install'
             }
         }
 
