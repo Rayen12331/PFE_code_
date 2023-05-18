@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     stages {
-        stage('Checkout') {
+        stage('Clone project') {
             steps {
                 // Checkout the source code from your Git repository
                 git 'https://github.com/Rayen12331/PFE_code_.git'
