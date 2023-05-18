@@ -12,8 +12,7 @@ pipeline {
         stage('Build') {
             steps {
                 // Install dependencies and build the React app
-                sh 'cd Frontend/client && npm install'
-                sh 'cd Frontend/client && npm run build'
+                sh 'cd C:/Users/LENOVO/.jenkins/workspace/PFEdeployment/Frontend/client && npm install'
 
                 // Install dependencies and build the Node.js server
                 sh 'cd Frontend/server && npm install'
