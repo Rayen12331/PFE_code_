@@ -12,11 +12,11 @@ pipeline {
         stage('Build') {
             steps {
                 // Install dependencies and build the React app
-                sh 'cd Frontend && cd client && npm install'
-                sh 'cd Frontend && cd client && npm run build'
+                sh 'cd Frontend/client && npm install'
+                sh 'cd Frontend/client && npm run build'
 
                 // Install dependencies and build the Node.js server
-                sh 'cd Frontend && cd server && npm install'
+                sh 'cd Frontend/server && npm install'
             }
         }
 
