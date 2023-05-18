@@ -17,15 +17,6 @@ pipeline {
             }
         }
 
-        stage('Deploy') {
-            steps {
-                // Insert your deployment steps here
-                sshagent(['your-ssh-credentials']) {
-                    bat 'ssh user@your-vm-address "cd /path/to/deployment; git pull"'
-                    bat 'ssh user@your-vm-address "cd /path/to/deployment; ./deploy.sh"'
-                    // Replace 'user', 'your-vm-address', '/path/to/deployment', and 'deploy.sh' with the appropriate values
-                }
-            }
-        }
+       
     }
 }
