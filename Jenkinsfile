@@ -11,9 +11,9 @@ pipeline {
         stage('Build') {
             steps {
                 // Insert your build steps here
-                sh 'cd Frontend' // Example build step using Maven
-                sh 'cd client'
-                sh 'npm install'
+                bat 'cd Frontend' // Example build step using Maven
+                bat 'cd client'
+                bat 'npm install'
 
             }
         }
@@ -22,8 +22,8 @@ pipeline {
             steps {
                 // Insert your deployment steps here
                 sshagent(['your-ssh-credentials']) {
-                    sh 'ssh user@your-vm-address "cd /path/to/deployment; git pull"'
-                    sh 'ssh user@your-vm-address "cd /path/to/deployment; ./deploy.sh"'
+                    bat 'ssh user@your-vm-address "cd /path/to/deployment; git pull"'
+                    bat 'ssh user@your-vm-address "cd /path/to/deployment; ./deploy.sh"'
                     // Replace 'user', 'your-vm-address', '/path/to/deployment', and 'deploy.sh' with the appropriate values
                 }
             }
