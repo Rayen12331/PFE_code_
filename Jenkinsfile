@@ -11,9 +11,8 @@ pipeline {
         stage('Build') {
             steps {
                 // Insert your build steps here
-                bat 'cd Frontend' // Example build step using Maven
-                bat 'cd client'
-                bat 'npm install'
+                bat 'cd Frontend && cd client && npm install' // Example build step using Maven
+                bat 'cd Frontend && cd server && npm install && npm install -g nodemon'
 
             }
         }
