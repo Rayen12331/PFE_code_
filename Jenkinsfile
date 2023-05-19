@@ -17,13 +17,12 @@ pipeline {
             }
         }
         
-        stage('Configure SSH Access') {
+        stage('Deploy') {
             steps {
-                // Generate SSH key pair
-                bat 'ssh-keygen -t rsa -b 4096 -C "rayenrayen1@yahoo.fr" -f ~/.ssh/id_rsa -q -N ""'
-                
-                // Add public key to the virtual machine
-                bat 'sshpass -p "<rayen>" ssh-copy-id -i ~/.ssh/id_rsa.pub <rayen>@<127.0.0.1>'
+                // Define deployment steps using SSH
+                sh 'ssh <rayen>@<127.0.0.1> "mkdir -p </home/project>"'
+                sh 'scp -r <C:\Users\LENOVO\.jenkins\workspace\PFE deployment> <rayen>@<127.0.0.1>:</home/project>'
+                // Add any additional deployment steps as required
             }
         }
        
