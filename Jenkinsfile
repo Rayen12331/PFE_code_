@@ -23,7 +23,7 @@ pipeline {
                 script {
                     def vmUsername = 'rayen'
                     def vmPassword = 'rayen'
-                    def vmIP = '127.0.0.1'
+                    def vmIP = '192.168.59.131'
                     def localProjectPath = 'C:/Users/LENOVO/.jenkins/workspace/PFE deployment'
                     def remoteDestinationPath = '/home/project'
 
