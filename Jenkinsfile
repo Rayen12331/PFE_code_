@@ -15,7 +15,7 @@ pipeline {
                     def remoteDestinationPath = '/home/rayen/project'
 
                     // Copy the project to the VM using scp
-                    ssh "scp -r ${localProjectPath} ${vmUsername}@${vmIP}:${remoteDestinationPath}"
+                    bat "scp -r ${localProjectPath} ${vmUsername}@${vmIP}:${remoteDestinationPath}"
                 }
             }
         }
