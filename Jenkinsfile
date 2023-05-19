@@ -17,12 +17,19 @@ pipeline {
             }
         }
         
-        stage('Deploy') {
+        stage('Copy to VM') {
             steps {
-                // Define deployment steps using SSH
-                bat 'ssh <rayen>@<127.0.0.1> "mkdir -p </home/project>"'
-                bat 'scp -r <C://Users//LENOVO//.jenkins//workspace//PFE deployment> <rayen>@<127.0.0.1>:</home/project>'
-                // Add any additional deployment steps as required
+                // Replace the placeholders with the appropriate values for your setup
+                script {
+                    def vmUsername = 'rayen'
+                    def vmPassword = 'rayen'
+                    def vmIP = '127.0.0.1'
+                    def localProjectPath = 'C:/Users/LENOVO/.jenkins/workspace/PFE deployment'
+                    def remoteDestinationPath = '/home/project'
+
+                    // Copy the project to the VM using scp
+                    bat "scp -r ${localProjectPath} ${vmUsername}@${vmIP}:${remoteDestinationPath}"
+                }
             }
         }
        
