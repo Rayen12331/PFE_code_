@@ -11,7 +11,7 @@ pipeline {
                     def vmUsername = 'rayen'
                     def vmPassword = 'rayen'
                     def vmIP = '192.168.59.131'
-                    def localProjectPath = 'C:/Users/LENOVO/Desktop/backup api'
+                    def localProjectPath = 'C:/Users/LENOVO/Desktop/"backup api"'
                     def remoteDestinationPath = '/home/project'
 
                     // Copy the project to the VM using scp
